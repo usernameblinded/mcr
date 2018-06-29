@@ -1,3 +1,4 @@
+source("functions.R")
 # Network array
 network<-array(dim=c(26,26,4))
 for (t in 1:4){
@@ -49,6 +50,5 @@ Xdyad[,,1]<-outer(sex,rep(1,M))
 Xdyad[,,2]<-outer(rep(1,M),sex)
 Xdyad[,,3]<-outer(sex,sex,"==")
 
-source("functions_ordinalZX.R")
 main_mcmc(Y,W,Xdyad,niter=20000,burnin=20000,Zt=T,Xt=T,odens=25,thin=25,file.name="result.RData")
 
